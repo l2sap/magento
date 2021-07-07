@@ -2,8 +2,9 @@
 
 namespace Mageplaza\HelloWorld\Controller\Index;
 
+use \Magento\Framework\App\Action\Action as Action;
 
-class Index extends \Magento\Framework\App\Action\Action
+class Index extends Action
 {
     protected $_pageFactory;
 
