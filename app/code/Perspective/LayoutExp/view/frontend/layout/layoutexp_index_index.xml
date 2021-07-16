@@ -9,6 +9,10 @@
     </action>
 </referenceBlock>
 <referenceContainer name="content">
-    <block name="layoutexp_index_index" class="Magento\Framework\View\Element\Template" template="Perspective_LayoutExp::index.phtml"/>
+<block
+name="layoutexp_index_index"
+class="Perspective\LayoutExp\Block\Layout\Index"
+template="Perspective_LayoutExp::index.phtml"
+/>
 </referenceContainer>
 </page>
