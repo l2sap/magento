@@ -4,6 +4,6 @@ use \Magento\Framework\Component\ComponentRegistrar as ComponentRegistrar;
 
 ComponentRegistrar::register(
     ComponentRegistrar::MODULE,
-    'Perspective_LayoutExp',
+    'MyCompany_FirstStart',
     __DIR__
 );
