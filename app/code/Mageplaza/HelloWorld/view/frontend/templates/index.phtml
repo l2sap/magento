@@ -1,11 +1,14 @@
-<h2>Welcome to Mageplaza.com</h2>
+<?php
+$productId = 100;
+$product = $block->getProductById($productId);
 
-<?php 
+$product = $block->getCurrentProduct();
 
-$productCollection = $block->getProductCollection();
-foreach ($productCollection as $product) {
-    print_r($product->getData());
-    echo "<br>";
+$categoryIds = $product->getCategoryIds();
+
+$categories = $block->getCategoryCollection()
+    ->addAttributeToFilter('entity_id', $categoryIds);
+
+foreach ($categories as $category) {
+    echo $category->getName() . '<br>';
 }
-
-?>
