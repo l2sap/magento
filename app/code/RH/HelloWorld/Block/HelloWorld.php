@@ -2,29 +2,30 @@
 
 namespace RH\HelloWorld\Block;
 
-class HelloWorld extends \Magento\Framework\View\Element\Template
-{
-    protected $productCollectionFactory;
-    protected $categoryFactory;
+use Magento\Catalog\Model\Product;
+use Magento\Catalog\Model\ResourceModel\Category\CollectionFactory;
 
-    public function __construct(
-        \Magento\Framework\View\Element\Template\Context $context,
-        \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
-        \Magento\Catalog\Model\CategoryFactory $categoryFactory,
-        array $data = []
-    ) {
-        $this->productCollectionFactory = $productCollectionFactory;
-        $this->categoryFactory = $categoryFactory;
-        parent::__construct($context, $data);
+class HelloWorld
+{
+    protected $product;
+    protected $categoryCollection;
+    public function __construct(Product $product, CollectionFactory $categoryCollection)
+    {
+        $this->product = $product;
+        $this->categoryCollection = $categoryCollection;
     }
 
-    public function getProductCollection()
+    public function getCategoriesName($productId)
     {
-        $collection = $this->productCollectionFactory->create();
-        $collection->addAttributeToSelect(['name', 'sku']);
-        $collection->setPageSize(3);
-        foreach ($collection as $product) {
-            print_r($product->getData());
+        $product = $this->product->load($productId);
+        $categoryIds = $product->getCategoryIds();
+        $categories = $this->categoryCollection->create()->addAttributeToSelect('*')->addAttributeToFilter('entity_id', $categoryIds);
+        $categoryNames = [];
+        foreach ($categories as $category) {
+            $categoryNames[] = $category->getName();
         }
+        $categoryName = implode(',', $categoryNames);
+        echo '1';
+        return $categoryName;
     }
 }

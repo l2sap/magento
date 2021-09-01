@@ -27,7 +27,7 @@ class Index extends \Magento\Framework\App\Action\Action
 	public function execute()
 	{
 		$resultPage = $this->resultPageFactory->create();
-		$resultPage->getConfig()->getTitle()->prepend(__('Welcome to RH Helloworld module'));
+		// $resultPage->getConfig()->getTitle()->prepend(__('Welcome to RH Helloworld module'));
 		return $resultPage;
 	}
 }
