@@ -3,28 +3,28 @@
 namespace Mageplaza\HelloWorld\Block;
 
 class Products extends \Magento\Framework\View\Element\Template
-{    
-  
-     /**
-     * @var \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory
-     */
-    protected $_productCollectionFactory;
-  
+{
+
+    protected $productCollectionFactory;
+    protected $productVisibility;
+    protected $productStatus;
     public function __construct(
-        \Magento\Backend\Block\Template\Context $context,        
-        \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory
-    )
-    {    
-        $this->_productCollectionFactory = $productCollectionFactory;
-        parent::__construct($context);
+        \Magento\Framework\View\Element\Template\Context $context,
+        \Magento\Catalog\Model\ResourceModel\Product\CollectionFactory $productCollectionFactory,
+        \Magento\Catalog\Model\Product\Attribute\Source\Status $productStatus,
+        \Magento\Catalog\Model\Product\Visibility $productVisibility,
+        array $data = []
+    ) {
+        $this->productCollectionFactory = $productCollectionFactory;
+        $this->productStatus = $productStatus;
+        $this->productVisibility = $productVisibility;
+        parent::__construct($context, $data);
     }
-    
-    
-    public function getProductCollectionByCategories($ids)
+    public function getProductCollection()
     {
-        $collection = $this->_productCollectionFactory->create();
-        $collection->addAttributeToSelect('*');
-        $collection->addCategoriesFilter(['in' => $ids]);
+        $collection = $this->productCollectionFactory->create();
+        $collection->addAttributeToFilter('status', ['in' => $this->productStatus->getVisibleStatusIds()]);
+        $collection->setVisibility($this->productVisibility->getVisibleInSiteIds());
         return $collection;
     }
 }

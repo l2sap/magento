@@ -5,7 +5,7 @@
         <referenceContainer name="content">
             <block class="Mageplaza\HelloWorld\Block\Products"
             name="helloworld_products"
-            template="Mageplaza_HelloWorld::list.phtml"
+            template="Mageplaza_HelloWorld::product-list.phtml"
             />
         </referenceContainer>
     </body>
