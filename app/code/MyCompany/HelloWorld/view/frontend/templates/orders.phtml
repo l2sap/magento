@@ -1,0 +1,35 @@
+<?php
+
+$_orders = $block->getOrders();
+
+if ($_orders && count($_orders)) {
+    $complete = $pending = $closed = $canceled = $processing = $onHold = 0;
+    foreach ($_orders as $_order) {
+        $label = $_order->getStatusLabel();
+        switch ($label) {
+            case 'Complete':
+                $complete++;
+                break;
+            case 'Pending':
+                $pending++;
+                break;
+            case 'Processing':
+                $processing++;
+                break;
+            case 'Canceled':
+                $canceled++;
+                break;
+            case 'Closed':
+                $closed++;
+                break;
+        }
+    }
+    echo "<b>Order Status</b> <hr>";
+    echo "Completed Order - $complete <hr>";
+    echo "Pending Order - $pending  <hr>";
+    echo "Closed Order - $closed  <hr>";
+    echo "Canceled Order - $canceled <hr>";
+    echo "Processing Order - $processing <hr>";
+} else {
+    echo "You have no Orders";
+}
