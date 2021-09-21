@@ -10,9 +10,11 @@ class Orders extends \Magento\Framework\View\Element\Template
     public function __construct(
         \Magento\Framework\View\Element\Template\Context $context,
         \Magento\Sales\Model\ResourceModel\Order\CollectionFactory $orderCollectionFactory,
+        \Magento\Sales\Model\Order $orderConfig,
         array $data = []
     ) {
         $this->_orderCollectionFactory = $orderCollectionFactory;
+        $this->_orderConfig = $orderConfig;
         parent::__construct($context, $data);
     }
 
@@ -22,5 +24,13 @@ class Orders extends \Magento\Framework\View\Element\Template
             $this->orders = $this->_orderCollectionFactory->create()->addFieldToSelect('*');
         }
         return $this->orders;
+    }
+
+
+    public function getOrderCollectionByCustomerId($customerId)
+    {
+        $collection = $this->_orderCollectionFactory->create($customerId)->addFieldToSelect('*');
+
+        return $collection;
     }
 }
