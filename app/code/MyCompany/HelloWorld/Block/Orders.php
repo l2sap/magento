@@ -33,4 +33,23 @@ class Orders extends \Magento\Framework\View\Element\Template
 
         return $collection;
     }
+
+    public function getOrderCollectionByDate($from, $to)
+    {
+        $collection = $this->_orderCollectionFactory->create()->addFieldToSelect('*')
+            ->addFieldToFilter(
+                'created_at',
+                ['gteq' => $from]
+            )
+            ->addFieldToFilter(
+                'created_at',
+                ['lteq' => $to]
+            )
+            ->setOrder(
+                'created_at',
+                'desc'
+            );
+
+        return $collection;
+    }
 }

@@ -1,14 +1,19 @@
 <?php
 
-$customerID = 1;
-$_customerOrder = $block->getOrderCollectionByCustomerId($customerID);
+$customerID = 3;
+$from = '2021-09-19';
+$to = '2022-09-21';
 
-foreach ($_customerOrder as $_order) {
+$_dateOrder = $block->getOrderCollectionByDate($from, $to);
+
+// echo count($_dateOrder);
+
+foreach ($_dateOrder as $_order) {
 
     $arr = $_order->getData();
 
     echo '<b>Store name:</b> ' . $arr['store_name'] . '<br>';
-    echo '<b>Entity Id:</b> '.$arr['entity_id'] . '<br>';
+    echo '<b>Entity Id:</b> ' . $arr['entity_id'] . '<br>';
     echo '<b>Name:</b> ' . $arr['customer_firstname'] . ' ' . $arr['customer_lastname'] . '<br>';
     echo '<b>@email:</b> ' . $arr['customer_email'] . '<br>';
     echo '<b>Status:</b> ' . $arr['status'] . '<br>';
@@ -16,6 +21,27 @@ foreach ($_customerOrder as $_order) {
 
     echo '<hr>';
 }
+
+
+
+
+
+// $customerID = 1;
+// $_customerOrder = $block->getOrderCollectionByCustomerId($customerID);
+
+// foreach ($_customerOrder as $_order) {
+
+//     $arr = $_order->getData();
+
+//     echo '<b>Store name:</b> ' . $arr['store_name'] . '<br>';
+//     echo '<b>Entity Id:</b> '.$arr['entity_id'] . '<br>';
+//     echo '<b>Name:</b> ' . $arr['customer_firstname'] . ' ' . $arr['customer_lastname'] . '<br>';
+//     echo '<b>@email:</b> ' . $arr['customer_email'] . '<br>';
+//     echo '<b>Status:</b> ' . $arr['status'] . '<br>';
+//     echo '<b>Created_at:</b> ' . $arr['created_at'] . '<br>';
+
+//     echo '<hr>';
+// }
 
 
 
