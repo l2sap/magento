@@ -1,0 +1,11 @@
+<?php
+
+$viewModel = $block->getData('view_model');
+
+
+$_paymentmethods = $viewModel->getAllPaymentMethodsList();
+
+foreach ($_paymentmethods as $payment) {
+
+    echo $payment . '<hr>';
+}
