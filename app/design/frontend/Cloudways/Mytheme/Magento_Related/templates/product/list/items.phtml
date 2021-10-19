@@ -1,0 +1,21 @@
+<?php
+switch ($type = $block->getType()) {
+    case 'related':
+        /** @var \Magento\Catalog\Block\Product\ProductList\Related$block */
+        if ($exist = $block->getItems()->getSize()) {
+            $type = 'related';
+            $class = $type;
+            $image = 'related_products_list';
+            $title = __('Related Products');
+            $items = $block->getItems();
+            $limit = 0;
+            $shuffle = 0;
+            $isWeightedRandom = 0;
+            $canItemsAddToCart = $block->canItemsAddToCart();
+            $showAddTo = true;
+            $showCart = false;
+            $templateType = null;
+            $description = false;
+        }
+        break;
+}
