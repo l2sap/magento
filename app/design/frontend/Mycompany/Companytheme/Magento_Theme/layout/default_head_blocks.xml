@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+   <head>
+    <!-- This will create a tag like '<meta http-equiv="X-UA-
+Compatible" content="IE=edge,chrome=1">' -->
+    <meta name="x_ua_compatible" content="IE=edge,chrome=1"/>
+    <!-- This will create a tag like '<meta property="og:type" content="
+article"/>'' -->
+    <meta name="og:type" content="article"/>
+    <!-- This will create a tag like '<meta charset="UTF-8">' -->
+    <meta name="charset" content="UTF-8"/>
+    <!-- This will create a tag like '<meta http-equiv="Content-Type"
+content="content-type-value"/>' -->
+    <meta name="content_type" content="content-type-value"/>
+    <!-- This tag will not render (see
+\Magento\Framework\View\Page\Config\Renderer for details) -->
+    <meta name="media_type" content="any-value"/>
+    <!-- This will create a tag like '<meta name="my_custom_type"
+content="my_custom_value"/>' -->
+    <meta name="my_custom_type" content="my_custom_value"/>
+    <meta name="title" content="Yarik Company"/>
+   </head>
+
+    <body>
+    <attribute name="class" value="my-new-body-class"/>
+    <attribute name="data-role" value="my-body-role"/>
+    <attribute name="id" value="my-new-body-id"/>
+    <attribute name="style" value="opacity:1;"/>
+    </body>
+
+
+    <block class="Magento\Catalog\Block\Product\View\Description"
+       name="product.info.sku"
+       template="Magento_Catalog::product/view/attribute.phtml"
+       after="product.info.type">
+    <arguments>
+        <argument name="at_call" xsi:type="string">getSku</argument>
+        <argument name="at_code" xsi:type="string">sku</argument>
+        <argument name="css_class" xsi:type="string">sku</argument>
+    </arguments>
+    </block>
+
+<referenceBlock name="page.main.title">
+    <arguments>
+        <argument name="css_class" xsi:type="string">my-new-block-class</argument>
+    </arguments>
+</referenceBlock>
+
+<referenceContainer name="content.bottom">
+    <block class="Magento\Cms\Block\Block" name="block_identifier">
+        <arguments>
+            <!-- Here is the CMS Block id -->
+            <argument name="block_id" xsi:type="string">my_cms_block_identifier</argument>
+        </arguments>
+    </block>
+</referenceContainer>
+
+<referenceBlock name="page.main.title">
+  <action method="setPageTitle">
+    <argument translate="true" name="title" xsi:type="string">Catalog Advanced Search</argument>
+  </action>
+</referenceBlock>
+
+</page>
