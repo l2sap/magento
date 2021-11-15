@@ -1,0 +1,10 @@
+<?php
+
+$viewModel = $block->getData('view_model');
+
+$ids = [23];
+$categoryProducts = $viewModel->getProductCollectionByCategories($ids);
+
+foreach ($categoryProducts as $product) {
+    echo '<b>Name:</b> ' . $product->getName() . ' <br> <b>Price:</b> ' . round($product->getPrice(), 2) . ' <br> <b>Sku:</b> ' . $product->getSku() . '<hr>';
+}

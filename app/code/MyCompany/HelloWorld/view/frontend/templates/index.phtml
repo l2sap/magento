@@ -1,0 +1,15 @@
+<?php
+
+$id = 745;
+$_productStock = $block->getStockItem($id);
+//print_r($_productStock->getData()); 
+echo 'Qty - ' . $_productStock->getQty();
+echo '<br />';
+echo 'MinQty - ' . $_productStock->getMinQty();
+echo '<br />';
+echo 'MinSaleQty - ' . $_productStock->getMinSaleQty();
+echo '<br />';
+echo 'MaxSaleQty - ' . $_productStock->getMaxSaleQty();
+echo '<br />';
+echo 'IsInStock - ' . $_productStock->getIsInStock();
+echo '<br />';
