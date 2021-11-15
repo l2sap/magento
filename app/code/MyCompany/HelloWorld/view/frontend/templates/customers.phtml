@@ -1,0 +1,15 @@
+<?php
+
+$customerID = 1;
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($customerID);
+
+echo '<b>Name</b> - ' . $customerObj->getName() . '<hr>';
+echo '<b>@email</b> - ' . $customerObj->getEmail() . '<hr>';
+
+$customerID = 2;
+$objectManager = \Magento\Framework\App\ObjectManager::getInstance();
+$customerObj = $objectManager->create('Magento\Customer\Model\Customer')->load($customerID);
+
+echo '<b>Name</b> - ' . $customerObj->getName() . '<hr>';
+echo '<b>@email</b> - ' . $customerObj->getEmail() . '<hr>';

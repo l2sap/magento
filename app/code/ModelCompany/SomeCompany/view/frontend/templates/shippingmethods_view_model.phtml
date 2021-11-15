@@ -1,0 +1,12 @@
+<?php
+
+$viewModel = $block->getData('view_model');
+
+$_shippingmethods = $viewModel->getShippingMethods();
+
+foreach ($_shippingmethods as $shipping) : ?>
+
+    <?= $shipping['label'] ?>
+    <hr>
+
+<?php endforeach; ?>
