@@ -7,7 +7,7 @@
                 class="Perspective\TutorialProductPage\Block\Custom"
                 name="product.info.main.perspective_custom_product_block"
                 template="​Perspective_TutorialEntityy::customTemplate.phtml"
-                afte="product.info.price"
+                after="product.info.price"
                 before="product.price.tier"
             />
         </referenceContainer>
