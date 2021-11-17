@@ -16,7 +16,7 @@
 
         <move element="product.info.options.wrapper" destination="product.info.addtocart.additional" before="-"/>
 
-        <move element="product.info.addto" destination="columns.top" after="page.main.title"/>
+        <move element="product.info.addto" destination="columns.top" after="product.info.main.perspective_buyme_product_block"/>
         
 
 

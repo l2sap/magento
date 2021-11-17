@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<page xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" layout="1column"
+      xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
+    <body>
+            <referenceContainer name="columns.top">
+                <block 
+                    class="Perspective\TutorialProductPage\Block\Buyme"
+                    name="product.info.main.perspective_buyme_product_block"
+                    template="​Perspective_TutorialEntityy::buyme.phtml"
+                    after="page.main.title"
+                    before="-"
+                />
+            </referenceContainer>
+    </body>
+</page>
