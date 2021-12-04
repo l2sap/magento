@@ -72,6 +72,7 @@ $_helper = $block->getData('outputHelper');
                                href="<?= $escaper->escapeUrl($_product->getProductUrl()) ?>">
                                 <?=/* @noEscape */ $_helper->productAttribute($_product, $_product->getName(), 'name')?>
                             </a>
+                            <div style="color:green;font-weight:bold;"><?= __(" Buy me!"); ?></div>
                         </strong>
                         <?= $block->getReviewsSummaryHtml($_product, $templateType) ?>
                         <?= /* @noEscape */ $block->getProductPrice($_product) ?>
