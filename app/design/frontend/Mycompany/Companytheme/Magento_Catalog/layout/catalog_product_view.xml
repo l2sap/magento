@@ -6,23 +6,13 @@
  */
 -->
 <page layout="1column" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
-<body>
-
-
-        <!-- <move element="product.info.sku" destination="product.info.price" after="product.price.final" /> -->
-
-        <!-- <referenceBlock class="Magento\Catalog\Block\Product\View" name="product.info.addtocart.additional" as="product.info.addtocart" template="Magento_Catalog::product/view/addtocart.phtml"/> -->
-        <!-- <referenceBlock class="Magento\Catalog\Block\Product\View" name="product.info.options.wrapper" as="product_options_wrapper" template="Magento_Catalog::product/view/addtocart.phtml" /> -->
+    <body>
 
         <move element="product.info.options.wrapper" destination="product.info.addtocart.additional" before="-"/>
 
         <move element="product.info.addto" destination="columns.top" after="product.info.main.perspective_buyme_product_block"/>
-        
 
-
-        <!-- <referenceBlock class="Magento\Catalog\Block\Product\View" name="product.info.options.wrapper" as="product_options_wrapper" template="Magento_Catalog::product/view/addtocart.phtml">
-        </referenceBlock> -->
-
-        
-</body>
+        <move element="argument.section" destination="columns.top" after="product.info.addto"/>
+            
+    </body>
 </page>
