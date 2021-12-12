@@ -10,6 +10,13 @@
                 after="product.info.price"
                 before="product.price.tier"
             />
+            <block class="Magento\Framework\View\Element\Template"
+                name="argument.section" 
+                template="​Perspective_TutorialEntityy::argument_section.phtml">
+                <arguments>
+                    <argument name="call_argument" xsi:type="string">Argument section!!!</argument>
+                </arguments>
+            </block> 
         </referenceContainer>
     </body>
 </page>
