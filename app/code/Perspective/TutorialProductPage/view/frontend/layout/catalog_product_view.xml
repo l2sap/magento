@@ -3,20 +3,28 @@
       xsi:noNamespaceSchemaLocation="urn:magento:framework:View/Layout/etc/page_configuration.xsd">
     <body>
         <referenceContainer name="product.info.main">
-            <block 
+            <!-- <block 
                 class="Perspective\TutorialProductPage\Block\Custom"
                 name="product.info.main.perspective_custom_product_block"
                 template="​Perspective_TutorialEntityy::customTemplate.phtml"
                 after="product.info.price"
                 before="product.price.tier"
-            />
+            /> -->
             <block class="Magento\Framework\View\Element\Template"
                 name="argument.section" 
                 template="​Perspective_TutorialEntityy::argument_section.phtml">
                 <arguments>
                     <argument name="call_argument" xsi:type="string">Argument section!!!</argument>
                 </arguments>
-            </block> 
+            </block>
+        </referenceContainer>
+        <referenceContainer name="product.info.stock.sku">
+            <block
+                class="Perspective\TutorialProductPage\Block\QtyProduct"
+                name="product.info.quantity"
+                template="​Perspective_TutorialEntityy::qtyproduct.phtml"
+                after="product.info.type"
+                />
         </referenceContainer>
     </body>
 </page>
