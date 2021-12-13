@@ -12,7 +12,8 @@
     <?php if ($block->getDisplayLabel()) :?>
         <span class="price-label"><?= $block->escapeHtml($block->getDisplayLabel()) ?></span>
     <?php endif; ?>
-    <span style="color:green;font-size:18px;font-weight:bold;font-style:italic;">Price:</span>
+    <br/>
+    <span style="color:green;font-size:18px;font-weight:bold;font-style:italic;">Price: </span>
     <span <?php if ($block->getPriceId()) :?> id="<?= $block->escapeHtmlAttr($block->getPriceId()) ?>"<?php endif;?>
         <?= ($block->getPriceDisplayLabel()) ? 'data-label="' . $block->escapeHtmlAttr($block->getPriceDisplayLabel() . $block->getPriceDisplayInclExclTaxes()) . '"' : '' ?>
         data-price-amount="<?= $block->escapeHtmlAttr($block->getDisplayValue()) ?>"
